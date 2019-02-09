@@ -2,11 +2,7 @@
 let randomNumber = [];
 
 function gameStart(){
-    let generateInputElement = document.createElement('input');
-    let gameElement = document.querySelector('.realGame');
-    let paragraph = document.createElement('p');
-    let checkButton = document.createElement('button');
-
+   
     let isValidNumber = false
     
     while (isValidNumber === false) {
@@ -16,6 +12,19 @@ function gameStart(){
             isValidNumber = true;
         }
     }
+
+    prepareForInput();
+
+    document.querySelector('button').onclick = null;
+}
+
+function prepareForInput(){
+    //Select 
+    let gameElement = document.querySelector('.gameArea');
+    let generateInputElement = document.createElement('input');
+    let paragraph = document.createElement('p');
+    let checkButton = document.createElement('button');
+
     paragraph.innerText = 'Enter 4-digit number (numbers cannot be repeated)';
     checkButton.innerHTML = 'Check number'
     gameElement.appendChild(paragraph);
@@ -27,7 +36,7 @@ function gameStart(){
 
 function checkForCowsAndBulls(e){
     let enteredNumber = document.querySelector('input').value.split('').map((character) => Number(character));
-    let resultElement = document.querySelector('.result');
+    let resultElement = document.querySelector('.gameLog');
     
     if (enteredNumber.length !== 4) {
         alert('Please enter 4-digit number');
