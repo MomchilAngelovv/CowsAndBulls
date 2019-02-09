@@ -1,3 +1,6 @@
+//Global variables
+let randomNumber = [];
+
 function gameStart(){
     let generatedNumberElement = document.createElement('div');
     let generateInputElement = document.createElement('input');
@@ -6,12 +9,11 @@ function gameStart(){
     let checkButton = document.createElement('button');
 
     let isValidNumber = false
-    let seq = [];
-
+    
     while (isValidNumber === false) {
-        seq = Math.floor(1000 + Math.random() * 9000).toString().split('')
+        randomNumber = Math.floor(1000 + Math.random() * 9000).toString().split('').map(Number)
         
-        if(validateNumber(seq)){
+        if(validateNumber(randomNumber)){
             isValidNumber = true;
         }
     }
@@ -21,7 +23,39 @@ function gameStart(){
     gameElement.appendChild(generateInputElement);
     gameElement.appendChild(checkButton);
 
-    console.log(seq);
+    checkButton.addEventListener('click',checkForCowsAndBulls);
+}
+
+function checkForCowsAndBulls(e){
+    let enteredNumber = document.querySelector('input').value.split('').map((character) => Number(character));
+    let resultElement = document.querySelector('.result');
+    
+    if (enteredNumber.length !== 4) {
+        alert('Please enter 4-digit number');
+        return;
+    }
+
+    let cows = 0;
+    let bulls = 0;
+
+    for (let i = 0; i < 4; i++) {
+        if (randomNumber[i] === enteredNumber[i]) {
+            bulls++;
+        }
+    }
+
+    if (bulls === 4) {
+        document.write(`Congratulations you guess the number ${randomNumber.join('')}`)
+    }
+    console.log(randomNumber);
+    console.log(enteredNumber);
+
+    let divResultElement = document.createElement('div');
+    divResultElement.innerHTML = `${enteredNumber.join('')} has ${cows} cows and ${bulls} bulls`
+
+    resultElement.appendChild(divResultElement);
+
+    console.log(resultElement);
 }
 
 function validateNumber(arr){
