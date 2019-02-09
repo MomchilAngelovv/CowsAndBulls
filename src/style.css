@@ -18,19 +18,19 @@ h3{
 
 .gameMenu{
     text-align: center;
-    margin: 25px 50px 75px 100px;
+    margin: 25px 25px 25px 25px;
 }
 
 .gameArea{
     font-size: 20px;
     text-align: center;
-    margin: 25px 50px 75px 100px;
+    margin: 0px 0px 0px 0px;
     padding: 25px 25px 25px 25px;
 }
 
 .gameLog {
     font-size: 20px;
     text-align: center;
-    margin: 25px 50px 75px 100px;
+    margin: 0px 0px 0px 0px;
     padding: 25px 25px 25px 25px;
 }

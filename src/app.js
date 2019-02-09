@@ -1,5 +1,6 @@
 //Global variables
 let randomNumber = [];
+let totalAttempts = 1;
 
 function gameStart(){
    
@@ -63,7 +64,7 @@ function checkForCowsAndBulls(e){
 
 function appendAttemptToLog(enteredNumber,cows,bulls,resultElement){
     let divResultElement = document.createElement('div');
-    divResultElement.innerHTML = `${enteredNumber.join('')} has ${cows} cows and ${bulls} bulls`;
+    divResultElement.innerHTML = `Attemp ${totalAttempts++}: ${enteredNumber.join('')} has ${cows} cows and ${bulls} bulls`;
 
     resultElement.appendChild(divResultElement);
 }
