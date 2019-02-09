@@ -2,7 +2,6 @@
 let randomNumber = [];
 
 function gameStart(){
-    let generatedNumberElement = document.createElement('div');
     let generateInputElement = document.createElement('input');
     let gameElement = document.querySelector('.realGame');
     let paragraph = document.createElement('p');
@@ -41,6 +40,8 @@ function checkForCowsAndBulls(e){
     for (let i = 0; i < 4; i++) {
         if (randomNumber[i] === enteredNumber[i]) {
             bulls++;
+        } else if (randomNumber.includes(enteredNumber[i]) && randomNumber[i] !== enteredNumber[i]){
+            cows++;
         }
     }
 
