@@ -60,6 +60,8 @@ function checkForCowsAndBulls(e){
     } else {
         appendAttemptToLog(enteredNumber,cows,bulls,resultElement);
     }
+
+    document.querySelector('input').value = '';
 }
 
 function appendAttemptToLog(enteredNumber,cows,bulls,resultElement){
