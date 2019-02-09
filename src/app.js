@@ -19,7 +19,7 @@ function gameStart(){
 }
 
 function prepareForInput(){
-    //Select 
+    //Select elements
     let gameElement = document.querySelector('.gameArea');
     let generateInputElement = document.createElement('input');
     let paragraph = document.createElement('p');
@@ -55,17 +55,21 @@ function checkForCowsAndBulls(e){
     }
 
     if (bulls === 4) {
-        document.write(`Congratulations you guess the number ${randomNumber.join('')}`)
+        gameEnd();
+    } else {
+        appendAttemptToLog(enteredNumber,cows,bulls,resultElement);
     }
-    console.log(randomNumber);
-    console.log(enteredNumber);
+}
 
+function appendAttemptToLog(enteredNumber,cows,bulls,resultElement){
     let divResultElement = document.createElement('div');
-    divResultElement.innerHTML = `${enteredNumber.join('')} has ${cows} cows and ${bulls} bulls`
+    divResultElement.innerHTML = `${enteredNumber.join('')} has ${cows} cows and ${bulls} bulls`;
 
     resultElement.appendChild(divResultElement);
+}
 
-    console.log(resultElement);
+function gameEnd(){
+    document.write(`Congratulations you guess the number ${randomNumber.join('')}`)
 }
 
 function validateNumber(arr){
