@@ -1,5 +1,9 @@
 function gameStart(){
     let generatedNumberElement = document.createElement('div');
+    let generateInputElement = document.createElement('input');
+    let gameElement = document.querySelector('.realGame');
+    let paragraph = document.createElement('p');
+    let checkButton = document.createElement('button');
 
     let isValidNumber = false
     let seq = [];
@@ -11,6 +15,11 @@ function gameStart(){
             isValidNumber = true;
         }
     }
+    paragraph.innerText = 'Enter 4-digit number (numbers cannot be repeated)';
+    checkButton.innerHTML = 'Check number'
+    gameElement.appendChild(paragraph);
+    gameElement.appendChild(generateInputElement);
+    gameElement.appendChild(checkButton);
 
     console.log(seq);
 }
